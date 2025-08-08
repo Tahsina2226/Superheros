@@ -7,7 +7,7 @@ Explore a dynamic and responsive React application showcasing superheroes from a
 ## **🚀 Live Demo**
 
 Experience the app live:
-[https://superhero-l21l.onrender.com](https://superhero-l21l.onrender.com)
+[https://superheros-zvpn.onrender.com](https://superheros-zvpn.onrender.com)
 
 ---
 

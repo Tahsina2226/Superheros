@@ -7,13 +7,13 @@ export default function SuperheroCard({ hero }) {
   return (
     <div
       onClick={() => navigate(`/hero/${hero.id}`)}
-      className="flex flex-col items-center bg-white shadow-md hover:shadow-xl p-5 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/hero/${hero.id}`); }}
       aria-label={`View details for ${hero.name}`}
+      className="grid grid-rows-[auto_auto_auto] bg-white shadow-md hover:shadow-xl p-5 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
     >
-      <div className="flex justify-center items-center bg-gray-100 border border-gray-300 rounded w-96 aspect-[4/3] overflow-hidden">
+      <div className="flex justify-center items-center bg-gray-100 border border-gray-300 rounded aspect-[4/3] overflow-hidden">
         <img
           src={hero.image?.url || 'https://via.placeholder.com/288x216?text=No+Image'}
           alt={hero.name}
@@ -22,20 +22,22 @@ export default function SuperheroCard({ hero }) {
         />
       </div>
 
-      <h2
-        className="mt-4 w-full font-semibold text-gray-900 text-xl text-center truncate"
-        title={hero.name}
-      >
-        {hero.name}
-      </h2>
-      <p
-        className="mt-1 w-full text-gray-600 text-sm text-center truncate"
-        title={hero.biography?.['full-name'] || 'No full name'}
-      >
-        {hero.biography?.['full-name'] || 'No full name'}
-      </p>
+      <div className="mt-4 text-center">
+        <h2
+          className="font-semibold text-gray-900 text-xl truncate"
+          title={hero.name}
+        >
+          {hero.name}
+        </h2>
+        <p
+          className="mt-1 text-gray-600 text-sm truncate"
+          title={hero.biography?.['full-name'] || 'No full name'}
+        >
+          {hero.biography?.['full-name'] || 'No full name'}
+        </p>
+      </div>
 
-      <div className="flex flex-wrap justify-center gap-2 mt-3 w-full">
+      <div className="flex flex-wrap justify-center gap-2 mt-3">
         {hero.biography?.alignment && (
           <span
             className={`px-3 py-1 text-xs font-semibold rounded-full select-none ${
@@ -48,10 +50,10 @@ export default function SuperheroCard({ hero }) {
             {hero.biography.alignment.charAt(0).toUpperCase() + hero.biography.alignment.slice(1)}
           </span>
         )}
-
         {hero.biography?.publisher && (
           <span
-            className="bg-amber-100 px-3 py-1 rounded-full max-w-xs font-semibold text-amber-800 text-xs truncate select-none"
+            className="px-3 py-1 rounded-full font-semibold text-xs truncate select-none"
+            style={{ backgroundColor: '#F7E7DC', color: '#A17C69' }}
             title={hero.biography.publisher}
           >
             {hero.biography.publisher}

@@ -11,7 +11,9 @@ export default function SuperheroDetails() {
     async function fetchDetails() {
       setLoading(true);
       try {
-        const res = await fetch(`https://superhero-api.innovixmatrixsystem.com/api/collections/superheros/records/${id}`);
+        const res = await fetch(
+          `https://superhero-api.innovixmatrixsystem.com/api/collections/superheros/records/${id}`
+        );
         if (!res.ok) throw new Error('Failed to fetch details');
         const data = await res.json();
         setHero(data);
@@ -23,20 +25,38 @@ export default function SuperheroDetails() {
     fetchDetails();
   }, [id]);
 
-  if (loading) return <p className="mt-10 font-semibold text-amber-700 text-lg text-center">Loading details...</p>;
-  if (error) return <p className="mt-10 font-semibold text-red-600 text-lg text-center">Error: {error}</p>;
-  if (!hero) return <p className="mt-10 font-semibold text-gray-800 text-lg text-center">No superhero found.</p>;
+  if (loading)
+    return (
+      <p className="mt-10 font-semibold text-amber-700 text-lg text-center">
+        Loading details...
+      </p>
+    );
+  if (error)
+    return (
+      <p className="mt-10 font-semibold text-red-600 text-lg text-center">
+        Error: {error}
+      </p>
+    );
+  if (!hero)
+    return (
+      <p className="mt-10 font-semibold text-gray-800 text-lg text-center">
+        No superhero found.
+      </p>
+    );
 
   return (
-    <>
-      <h2 className="mt-12 mb-4 font-extrabold text-gray-900 text-4xl text-center">
-        Superhero Profile Details
-      </h2>
-      <p className="mx-auto mb-10 px-4 sm:px-0 max-w-3xl text-gray-700 text-center">
-        Explore comprehensive information about this superhero, including biography, appearance, power stats, connections, and work details.
-      </p>
+    <div
+      className="flex justify-center px-4 py-12 min-h-screen"
+      style={{ backgroundColor: '#F5EDED' }}
+    >
+      <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-5xl">
+        <h2 className="mb-4 font-extrabold text-gray-900 text-4xl text-center">
+          Superhero Profile Details
+        </h2>
+        <p className="mx-auto mb-10 max-w-3xl text-gray-700 text-center">
+          Explore comprehensive information about this superhero, including biography, appearance, power stats, connections, and work details.
+        </p>
 
-      <div className="bg-white shadow-lg mx-auto my-10 p-6 rounded-lg max-w-5xl container">
         <Link
           to="/"
           className="inline-block mb-6 font-semibold text-amber-700 hover:underline transition"
@@ -53,10 +73,10 @@ export default function SuperheroDetails() {
             />
           </div>
 
-          <div className="flex-grow">
-            <h1 className="mb-4 font-extrabold text-gray-900 text-4xl">{hero.name}</h1>
+          <div className="flex flex-col flex-grow gap-8">
+            <h1 className="font-extrabold text-gray-900 text-4xl">{hero.name}</h1>
 
-            <section className="mb-8">
+            <section>
               <h2 className="mb-3 pb-1 border-amber-300 border-b-2 font-semibold text-gray-800 text-2xl">
                 Biography
               </h2>
@@ -71,7 +91,7 @@ export default function SuperheroDetails() {
               </ul>
             </section>
 
-            <section className="mb-8">
+            <section>
               <h2 className="mb-3 pb-1 border-amber-300 border-b-2 font-semibold text-gray-800 text-2xl">
                 Appearance
               </h2>
@@ -90,22 +110,40 @@ export default function SuperheroDetails() {
         <section className="mt-10">
           <h2 className="mb-6 font-bold text-gray-900 text-3xl text-center">Power Stats</h2>
           <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            {hero.powerstats && Object.entries(hero.powerstats).map(([stat, value]) => {
-              const valNum = Number(value);
-              const validValue = isNaN(valNum) ? 0 : valNum;
-              return (
-                <div key={stat} className="bg-amber-50 shadow-md p-5 border border-amber-200 rounded-lg">
-                  <h3 className="mb-2 font-semibold text-amber-700 text-lg capitalize">{stat}</h3>
-                  <div className="bg-amber-200 rounded-full w-full h-4 overflow-hidden">
+            {hero.powerstats &&
+              Object.entries(hero.powerstats).map(([stat, value]) => {
+                const valNum = Number(value);
+                const validValue = isNaN(valNum) ? 0 : valNum;
+                return (
+                  <div
+                    key={stat}
+                    className="shadow-md p-5 rounded-lg"
+                    style={{ backgroundColor: '#F7E7DC', border: '1px solid #E3CFC3' }}
+                  >
+                    <h3
+                      className="mb-2 font-semibold text-lg capitalize"
+                      style={{ color: '#A17C69' }}
+                    >
+                      {stat}
+                    </h3>
                     <div
-                      className="bg-amber-600 rounded-full h-4 transition-width duration-500 ease-in-out"
-                      style={{ width: `${validValue}%` }}
-                    />
+                      className="rounded-full w-full h-4 overflow-hidden"
+                      style={{ backgroundColor: '#E3CFC3' }}
+                    >
+                      <div
+                        className="rounded-full h-4 transition-all duration-500 ease-in-out"
+                        style={{
+                          width: `${validValue}%`,
+                          backgroundColor: '#A17C69',
+                        }}
+                      />
+                    </div>
+                    <p className="mt-2 font-medium" style={{ color: '#A17C69' }}>
+                      {validValue}/100
+                    </p>
                   </div>
-                  <p className="mt-2 font-medium text-amber-900">{validValue}/100</p>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </section>
 
@@ -125,6 +163,6 @@ export default function SuperheroDetails() {
           <p className="text-gray-700"><strong>Base:</strong> {hero.work?.base || 'Unknown'}</p>
         </section>
       </div>
-    </>
+    </div>
   );
 }

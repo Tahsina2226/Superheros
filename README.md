@@ -1,38 +1,40 @@
 ---
 # **Superhero Database – Frontend**
 
-A sleek and responsive React application for exploring superheroes, powered by the **Innovix Matrix Public Superhero API**.
-Built with **Vite** for blazing-fast performance and **Tailwind CSS** for modern, responsive design.
+Explore a dynamic and responsive React application showcasing superheroes from across the multiverse. This project utilizes the **Innovix Matrix Public Superhero API** and is built with **Vite** and **Tailwind CSS** for optimal performance and sleek UI design.
 ---
 
 ## **🚀 Live Demo**
 
-Check out the deployed application here:
+Experience the app live:
 [https://superhero-l21l.onrender.com](https://superhero-l21l.onrender.com)
 
 ---
 
-## **✨ Key Features**
+## **✨ Features**
 
-- 🔍 **Search & Filter** – Find superheroes with partial or exact name matches.
-- 📑 **Pagination & Sorting** – Browse heroes in pages, sorted A–Z or Z–A.
-- 📜 **Detailed Profiles** – View complete superhero information.
-- 📱 **Fully Responsive** – Optimized for mobile, tablet, and desktop.
-- ⚡ **Fast Development** – Powered by Vite and modern tooling.
-
----
-
-## **🛠 Technology Stack**
-
-- **React 18+** – UI library for building interactive interfaces
-- **Vite** – Next-generation frontend tooling
-- **Tailwind CSS** – Utility-first styling
-- **React Router** – Client-side navigation
-- **Fetch API** – Seamless data fetching
+- Robust search with partial and exact matching.
+- Pagination with sorting options (A–Z and Z–A).
+- Detailed superhero profiles with biography, stats, and more.
+- Fully responsive interface for all device sizes.
+- Fast, modern build tools powered by Vite.
+- Responsive Navbar with intuitive navigation and alerts for upcoming features.
+- Informative Footer with useful links, contact details, and social connections.
 
 ---
 
-## **📂 Project Structure**
+## **🛠 Tech Stack**
+
+- React 18+
+- Vite (bundler & dev server)
+- Tailwind CSS (utility-first styling)
+- React Router (routing)
+- Fetch API (data fetching)
+- SweetAlert2 (alert modals)
+
+---
+
+## **📂 Project Layout**
 
 ```
 SUPERHERO/
@@ -40,9 +42,12 @@ SUPERHERO/
 ├── src/
 │   ├── assets/
 │   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
 │   │   ├── Superhero.jsx
 │   │   └── SuperheroCard.jsx
 │   ├── pages/
+│   │   ├── Home.jsx
 │   │   └── SuperheroDetails.jsx
 │   ├── App.css
 │   ├── App.jsx
@@ -52,72 +57,90 @@ SUPERHERO/
 ├── tailwind.config.js
 ├── vite.config.js
 └── README.md
+
 ```
 
 ---
 
-## **⚙️ Getting Started**
+## **🧭 Navigation Bar**
 
-### **Prerequisites**
+- Sticky top nav with brand logo linking home.
+- Desktop: horizontal menu with active link highlighting.
+- Mobile: collapsible hamburger menu.
+- Menu items include Home (navigable) and other pages (About, Services, Blog, Contact) showing friendly SweetAlert2 modals “Coming Soon!” when clicked.
 
-- Node.js **v14+**
-- npm or yarn package manager
+---
 
-### **Installation**
+## **📄 Footer**
+
+- Structured into three main columns:
+
+  - Quick navigation links to key pages.
+  - Contact information including address, email, and phone.
+  - Social icons linking to LinkedIn and GitHub profiles for easy connection.
+
+- Responsive and accessible design ensuring usability across devices.
+
+---
+
+## **⚙️ Setup Instructions**
+
+### Requirements
+
+- Node.js v14+
+- npm or yarn
+
+### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/Tahsina2226/Superheros.git
-
-# Navigate into the project
 cd Superheros
-
-# Install dependencies
 npm install
 ```
 
-### **Run Development Server**
+### Running Locally
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Access the app at [http://localhost:5173](http://localhost:5173).
 
 ---
 
-## **📦 Build for Production**
+## **📦 Production Build**
 
 ```bash
 npm run build
 ```
 
-The production-ready files will be in the `dist` folder.
+Built files will be located in the `dist` directory.
 
 ---
 
-## **🌐 API Reference**
+## 🌐 API Endpoints
 
-### **Superhero List**
+### Fetch Superhero List
 
-```
-GET https://superhero-api.innovixmatrixsystem.com/api/collections/superheros/records
-```
+**Endpoint:**  
+`GET https://superhero-api.innovixmatrixsystem.com/api/collections/superheros/records`
 
 **Query Parameters:**
 
-- `page` → Page number (default: `1`)
-- `perPage` → Items per page (default: `5`)
-- `filter` → Search term (e.g., `name ~ 'Spider'`)
-- `sort` → Sort order: `name` (A–Z) or `-name` (Z–A)
+- `page` — Page number to retrieve. Default is `1`.
+- `perPage` — Number of superheroes per page. Default is `5`.
+- `filter` — Filter superheroes by name. Example: `name ~ 'Batman'` supports partial matching.
+- `sort` — Sort superheroes by name. Use `name` for ascending or `-name` for descending order.
 
-### **Superhero Details**
+---
 
-```
-GET https://superhero-api.innovixmatrixsystem.com/api/collections/superheros/records/{id}
-```
+### Fetch Superhero Details
 
-Replace `{id}` with the superhero’s unique ID.
+**Endpoint:**  
+`GET https://superhero-api.innovixmatrixsystem.com/api/collections/superheros/records/{id}`
+
+**Description:**  
+Replace `{id}` with the unique identifier of the superhero to retrieve detailed information about that specific hero.
 
 ---
 
@@ -132,6 +155,6 @@ Replace `{id}` with the superhero’s unique ID.
 
 ## **📄 License**
 
-This project was created specifically for the **Innovix Matrix System Technical Task** and is not licensed for general use.
+This project is intended exclusively for the **Innovix Matrix System Technical Task** and is not open for public reuse.
 
 ---

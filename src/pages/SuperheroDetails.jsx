@@ -46,7 +46,7 @@ export default function SuperheroDetails() {
 
   return (
     <div
-      className="flex justify-center px-4 py-12 min-h-screen"
+      className="flex justify-center mt-6 px-4 py-12 min-h-screen"
       style={{ backgroundColor: '#F5ECE0', color: '#6B6259' }}
     >
       <div className="bg-white shadow-lg p-6 rounded-lg w-full max-w-5xl">

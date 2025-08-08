@@ -43,20 +43,21 @@ export default function SuperheroList() {
   }, [search, sortOrder, matchType]);
 
   return (
-    <div className="bg-white shadow-lg mx-auto px-6 py-14 rounded-lg max-w-7xl">
+    <div
+      className="shadow-lg mx-auto px-6 py-14 rounded-lg max-w-7xl"
+      style={{ backgroundColor: '#F5ECE0', color: '#6B6259' }}
+    >
       <div className="mb-10 text-center">
-        <h2 className="mb-3 font-extrabold text-gray-900 text-5xl tracking-tight">
+        <h2 className="mb-3 font-extrabold text-5xl tracking-tight" style={{ color: '#6B6259' }}>
           Meet Your Favorite Superheroes
         </h2>
-        <p className="mx-auto max-w-xl text-gray-600 text-lg leading-relaxed">
+        <p className="mx-auto max-w-xl text-lg leading-relaxed" style={{ color: '#6B6259' }}>
           Explore detailed profiles of superheroes from various universes.
         </p>
         {totalCount !== null && (
-          <p className="mt-3 text-gray-500 text-sm">
+          <p className="mt-3 text-sm" style={{ color: '#A17C69' }}>
             Total superheroes found:{' '}
-            <span className="font-semibold" style={{ color: '#A17C69' }}>
-              {totalCount}
-            </span>
+            <span className="font-semibold">{totalCount}</span>
           </p>
         )}
       </div>
@@ -67,11 +68,10 @@ export default function SuperheroList() {
           placeholder="Search superheroes..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="shadow-sm px-5 py-3 border rounded-md focus:outline-none focus:ring-2 w-full sm:w-1/2 text-gray-700 transition placeholder-gray-500"
+          className="shadow-sm px-5 py-3 border rounded-md focus:outline-none focus:ring-2 w-full sm:w-1/2 text-[#6B6259] transition placeholder-[#A17C69]"
           style={{
             backgroundColor: '#fcfbf9',
             borderColor: '#E3CFC3',
-            color: '#A17C69',
             boxShadow: '0 0 0 2px transparent',
           }}
           onFocus={e => (e.target.style.boxShadow = '0 0 0 2px #A17C69')}
@@ -81,11 +81,10 @@ export default function SuperheroList() {
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
-            className="shadow-sm px-5 py-3 border rounded-md focus:outline-none focus:ring-2 text-gray-700 transition"
+            className="shadow-sm px-5 py-3 border rounded-md focus:outline-none focus:ring-2 text-[#6B6259] transition"
             style={{
               backgroundColor: 'white',
               borderColor: '#E3CFC3',
-              color: '#A17C69',
               boxShadow: '0 0 0 2px transparent',
             }}
             onFocus={e => (e.target.style.boxShadow = '0 0 0 2px #A17C69')}
@@ -97,11 +96,10 @@ export default function SuperheroList() {
           <select
             value={matchType}
             onChange={(e) => setMatchType(e.target.value)}
-            className="shadow-sm px-5 py-3 border rounded-md focus:outline-none focus:ring-2 text-gray-700 transition"
+            className="shadow-sm px-5 py-3 border rounded-md focus:outline-none focus:ring-2 text-[#6B6259] transition"
             style={{
               backgroundColor: 'white',
               borderColor: '#E3CFC3',
-              color: '#A17C69',
               boxShadow: '0 0 0 2px transparent',
             }}
             onFocus={e => (e.target.style.boxShadow = '0 0 0 2px #A17C69')}
@@ -114,10 +112,7 @@ export default function SuperheroList() {
       </div>
 
       {loading ? (
-        <p
-          className="font-semibold text-lg text-center animate-pulse"
-          style={{ color: '#A17C69' }}
-        >
+        <p className="font-semibold text-lg text-center animate-pulse" style={{ color: '#A17C69' }}>
           Loading superheroes...
         </p>
       ) : (
@@ -152,7 +147,7 @@ export default function SuperheroList() {
         >
           Previous
         </button>
-        <span className="font-semibold text-gray-700 text-lg select-none">
+        <span className="font-semibold text-[#6B6259] text-lg select-none">
           Page <span style={{ color: '#A17C69' }}>{page}</span> / <span>{totalPages}</span>
         </span>
         <button

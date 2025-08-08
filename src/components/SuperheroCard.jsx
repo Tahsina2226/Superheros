@@ -13,7 +13,11 @@ export default function SuperheroCard({ hero }) {
       aria-label={`View details for ${hero.name}`}
       className="grid grid-rows-[auto_auto_auto] bg-white shadow-md hover:shadow-xl p-5 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
     >
-      <div className="flex justify-center items-center bg-gray-100 border border-gray-300 rounded aspect-[4/3] overflow-hidden">
+  
+      <div
+        className="flex justify-center items-center border border-gray-300 rounded aspect-[4/3] overflow-hidden"
+        style={{ backgroundColor: '#F5ECE0' }}
+      >
         <img
           src={hero.image?.url || 'https://via.placeholder.com/288x216?text=No+Image'}
           alt={hero.name}
@@ -22,6 +26,7 @@ export default function SuperheroCard({ hero }) {
         />
       </div>
 
+   
       <div className="mt-4 text-center">
         <h2
           className="font-semibold text-gray-900 text-xl truncate"
@@ -36,6 +41,7 @@ export default function SuperheroCard({ hero }) {
           {hero.biography?.['full-name'] || 'No full name'}
         </p>
       </div>
+
 
       <div className="flex flex-wrap justify-center gap-2 mt-3">
         {hero.biography?.alignment && (
@@ -52,8 +58,7 @@ export default function SuperheroCard({ hero }) {
         )}
         {hero.biography?.publisher && (
           <span
-            className="px-3 py-1 rounded-full font-semibold text-xs truncate select-none"
-            style={{ backgroundColor: '#F7E7DC', color: '#A17C69' }}
+            className="bg-amber-100 px-3 py-1 rounded-full font-semibold text-amber-800 text-xs truncate select-none"
             title={hero.biography.publisher}
           >
             {hero.biography.publisher}

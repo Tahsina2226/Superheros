@@ -1,13 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import SuperheroList from './components/Superhero';
+
+import Home from './pages/Home';              
 import SuperheroDetails from './pages/SuperheroDetails';
 
 function App() {
   return (
-    <div className="mx-auto p-4 container">
+    <div className="p-4">
       <Routes>
-        <Route path="/" element={<SuperheroList />} />
+        <Route path="/" element={<Home />} />
         <Route path="/hero/:id" element={<SuperheroDetails />} />
       </Routes>
     </div>
